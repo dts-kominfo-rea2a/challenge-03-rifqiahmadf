@@ -22,18 +22,26 @@ const dataBelanjaan = [
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
 const listBelanjaan = (dataBelanjaan) => {
-  return dataBelanjaan.map(
-    (barang) => `- ${String(barang?.nama)} x ${String(barang?.kuantitas)}`
-  );
+  let output = [];
+  for (let i = 0; i < dataBelanjaan.length; i++) {
+    output.push(
+      `- ${String(dataBelanjaan[i]?.nama)} x ${String(
+        dataBelanjaan[i]?.kuantitas
+      )}`
+    );
+  }
+  return output;
 };
 
 // boleh dimodifikasi bila ingin menggunakan deklarasi fungsi yang normal
 const totalBelanjaan = (dataBelanjaan) => {
-  let total = 0;
-  dataBelanjaan.forEach((barang) => {
-    total += parseInt(barang?.harga, 10) * parseInt(barang?.kuantitas, 10);
-  });
-  return total;
+  let output = 0;
+  for (let i = 0; i < dataBelanjaan.length; i++) {
+    output +=
+      parseInt(dataBelanjaan[i]?.harga, 10) *
+      parseInt(dataBelanjaan[i]?.kuantitas, 10);
+  }
+  return output;
 };
 
 // ! JANGAN DIMODIFIKASI
